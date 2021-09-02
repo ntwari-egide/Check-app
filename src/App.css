@@ -1,0 +1,29 @@
+.form-container{
+  background: #bac1d1;
+  height: 100vh;
+}
+
+.form-container .container{
+  width: 47%;
+  margin: auto;
+  padding: 54px;
+}
+
+.form-container .container button{
+  background: #4c4cfb;
+}
+
+.form-container  h1{
+  font-size: 17px;
+  margin-bottom: 49px;
+}
+
+.user-profile{
+  background: white;
+  width: 100%;
+}
+
+.user-profile img{
+  width: 44%;
+    height: 100%;
+}

@@ -1,0 +1,77 @@
+/**
+ * @author: ntwari egide
+ * @description Navbar component
+ */
+ import React from "react"; 
+ import { Redirect, useHistory,Link } from "react-router-dom";
+
+ /**
+ * @description Navbar component
+ */
+ 
+ export default function Navbar({ fixed }) {
+ 
+   /**
+   * @description setting required states to be used in this Navbar component
+   */
+ 
+   const [navbarOpen, setNavbarOpen] = React.useState(false);
+ 
+   return (
+     
+     <>
+     
+       <nav className="navigation-bar relative flex flex-wrap items-center justify-between px-2 py-3">
+     
+         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+     
+           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+     
+             <h1>Todara</h1>
+     
+             <button
+     
+               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+               
+               type="button"
+               
+               onClick={() => setNavbarOpen(!navbarOpen)}
+               
+             >
+             
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(254,254,254,1)"/></svg>
+             
+             </button>
+         
+           </div>
+         
+           <div
+         
+             className={
+               "lg:flex flex-grow items-center" +
+               (navbarOpen ? " flex" : " hidden")
+         
+             }
+         
+             id="example-navbar-danger"
+           >
+ 
+             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+             
+               <li className="nav-item"><Link to={"/dashboard"}>Dashboard</Link> </li>
+               <li className="nav-item ml-2"><Link to={"/profile"}>Profile</Link></li>
+               <li className="nav-item ml-2"><Link to={"/logout"}>Logout</Link></li>
+             
+             </ul>
+ 
+           </div>
+  
+         </div>
+  
+       </nav>
+  
+     </>
+  
+  );
+ 
+ }
