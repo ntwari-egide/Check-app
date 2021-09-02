@@ -3,7 +3,7 @@ import Navbar from "./Navbar"
 import { Redirect, useHistory,Link } from "react-router-dom";
 
 
-const DashboardComponent = () => {
+const DashboardDepositCheckComponent = () => {
     const history  = useHistory()
 
     if(sessionStorage.getItem('loggedIn')){
@@ -11,9 +11,9 @@ const DashboardComponent = () => {
 
             <div>
                 <Navbar />
-                <div className="dashboard">
+                <div className="flex dashboard">
                     <div className="grid grid-cols-4 text-center gap-4 p-8">
-                        <Link to="/dashboard-check-cash">
+                    <Link to="/dashboard-check-cash">
                             <div className="flex px-4 py-14 bg-white rounded-sm shadow cursor-pointer">
                                 <p className="text-lg">Check your balance</p>
                                 <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12.172 12L9.343 9.172l1.414-1.415L15 12l-4.243 4.243-1.414-1.415z" fill="rgba(16,9,145,1)"/></svg>
@@ -41,8 +41,6 @@ const DashboardComponent = () => {
                             </div>
                         </Link>
                     </div>
-
-                    <h1 className="text-center text-xl">Welcome back <br /> <strong>Check.</strong></h1>
                 </div>
             </div>
         )
@@ -55,4 +53,4 @@ const DashboardComponent = () => {
 
 }
 
-export default DashboardComponent
+export default DashboardDepositCheckComponent
