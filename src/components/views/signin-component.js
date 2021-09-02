@@ -48,9 +48,13 @@ const SigninComponent = () => {
 
 
     return (
-        <div class="form-container pt-24">
-            <div class="container bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-                <h1>Sign in in <strong>Todara.</strong></h1>
+        <div class="grid grid-cols-2 form-container pt-24">
+            <div class="pl-32 py-24 main">
+                <h1>Check.</h1>
+                <p>Manage  your ATM card</p>
+            </div>
+            <div class="container flex flex-col text-white">
+                <p class="font-light mb-8 text-sm">LOGIN  <br /><strong class="text-lg">YOUR ACCOUNT</strong></p>
 
                 {loginsuccess? <p class="px-4 py-2 center bg-green-600 text-white my-2">Login is successful</p> : ""}
 
@@ -58,25 +62,25 @@ const SigninComponent = () => {
 
 
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
-                        email
+                    <label class="block text-grey-darker text-sm mb-2" for="email">
+                        email :
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="text" placeholder="email" name="email" onChange={handleValuesChange} />
-                    {isemailempty? <p class="text-red-500 text-xs italic mt-2">Please enter your email</p>: ""}
+                    <input class=" w-full py-2 text-white-300" id="email" type="text" placeholder="email" name="email" onChange={handleValuesChange} />
+                    {isemailempty? <p class="text-red-300 text-xs italic mt-2">Please enter your email</p>: ""}
 
                 </div>
                 <div class="mb-6">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-                        Password
+                    <label class="block text-grey-darker text-sm mb-2" for="password">
+                        Password :
                     </label>
-                    <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" name="password" onChange={handleValuesChange} id="password" type="password" placeholder="******************" />
-                    {ispasswordempty? <p class="text-red-500 text-xs italic">Please choose a password.</p> : ""}
+                    <input class="border-red  w-full py-2 text-white-300 mb-3" name="password" onChange={handleValuesChange} id="password" type="password" placeholder="******************" />
+                    {ispasswordempty? <p class="text-red-300 text-xs italic">Please choose a password.</p> : ""}
                 </div>
                 <div class="flex items-center justify-between">
-                <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button" onClick={handlebuttonclicked}>
-                    Login
+                <button class="text-white font-bold py-3 px-10 text-sm" type="button" onClick={handlebuttonclicked}>
+                    LOGIN
                 </button>
-                <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+                <a class="inline-block align-baseline font-medium text-sm" href="#">
                     Forgot Password?
                 </a>
                 </div>

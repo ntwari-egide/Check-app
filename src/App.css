@@ -1,21 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 .form-container{
-  background: #bac1d1;
+  background: #0B3ED9;
   height: 100vh;
 }
 
 .form-container .container{
-  width: 47%;
-  margin: auto;
+  width: 70%;
   padding: 54px;
 }
 
-.form-container .container button{
-  background: #4c4cfb;
+.form-container .main h1{
+  font-size: 53px;
+  color: white;
 }
 
-.form-container  h1{
-  font-size: 17px;
-  margin-bottom: 49px;
+.form-container .main p{
+  color: #ffffffb5;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.form-container .container input{
+  background: transparent;
+    border-bottom: 1px solid #ffffff6b;
+  font-weight: 400;
+  outline: none
+}
+
+.form-container .container button{
+  background: white;
+  color: #0b3ed9;
+  box-shadow: 0 2px 4px #0000003b;
 }
 
 .user-profile{
