@@ -38,6 +38,22 @@ body{
   box-shadow: 0 2px 4px #0000003b;
 }
 
+.main-header{
+  font-weight: 700;
+    font-size: 22px;
+    color: #0b3ed9;
+}
+
+.dashboard{
+  background: #0642f71e;
+  height: 100vh;
+}
+
+.dashboard div div{
+  height: 165px;
+  padding: 72px;
+}
+
 .user-profile{
   background: white;
   width: 100%;

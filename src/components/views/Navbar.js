@@ -27,7 +27,7 @@
      
            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
      
-             <h1>Todara</h1>
+             <h1 class="main-header">Check.</h1>
      
              <button
      
@@ -57,9 +57,7 @@
            >
  
              <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-             
-               <li className="nav-item"><Link to={"/dashboard"}>Dashboard</Link> </li>
-               <li className="nav-item ml-2"><Link to={"/profile"}>Profile</Link></li>
+
                <li className="nav-item ml-2"><Link to={"/logout"}>Logout</Link></li>
              
              </ul>
