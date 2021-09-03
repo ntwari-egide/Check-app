@@ -46,7 +46,7 @@ body{
 
 .dashboard{
   background: #0642f71e;
-  height: 100vh;
+  height: 110vh;
 }
 
 .dashboard div div{
@@ -54,6 +54,30 @@ body{
   padding: 72px;
 }
 
+.dashboard .main-content input{
+  border: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #00000069;
+  outline: none
+}
+
+.dashboard .main-content input#file{
+  border: none;
+  padding: 10px 0;
+  border: none !important;
+  outline: none
+}
+
+.dashboard .main-content button{
+  padding: 10px 84px;
+  outline: none;
+  background: #f5c416;
+  margin-top: 22px;
+}
+
+.dashboard .main-content{
+  height: 68vh !important;
+}
 .user-profile{
   background: white;
   width: 100%;
