@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react"
 import { Redirect, useHistory,Link } from "react-router-dom";
+import { Document, Page, Text, View, StyleSheet, PDFViewer,Image } from "@react-pdf/renderer";
+import { Table,TableHeader,TableBody,TableCell,DataTableCell } from '@david.kucsai/react-pdf-table';
 
 const LogoutComponent = () => {
 
@@ -68,7 +70,78 @@ const styles = StyleSheet.create({
                     <div class="form-container">
                     <div class="h-screen bg-gray-300">
                         <h1 class="m-auto pt-14 text-center">Logged out, Go <Link to={"/signin"} class="border">Login</Link> </h1>  
-                        <h1 className="mt-8 text-lg text-center">Print Receipt</h1>  
+                        <h1 className="mt-8 text-lg text-center">Print Receipt</h1> 
+
+                        <PDFViewer>
+                            <Document title={`atm receipt`} author="Check app ltd">
+                                <Page   style={styles.page} className="page" size={[580, 1350]} >
+                                    <View>
+                                        <Text  style={styles.textHeader}></Text>
+                                    </View>
+                    
+                                    <View style={styles.leftAlignment}>
+                                        <Text style={styles.billToText}>Invoice #                   {invoicedetails.id}</Text>
+                                        <Text style={styles.billToText}>Invoice Date #          {dateParser(new Date(invoicedetails.createdAt))}</Text>
+                                        <Text style={styles.billToText}>Invoice Due Date #    {todayDate}</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={{
+                                            fontSize: '23px'
+                                        }}>Check.</Text>
+                                    </View>
+                                    <View style={{position: 'relative',top: '-90px'}}>
+                                    <Table
+                                        data={invoicedetails.invoicedTasks}
+                                    >
+                                        <TableHeader>
+                                            <TableCell style={styles.tableHeader}>
+                                                QTN
+                                            </TableCell>
+                                            <TableCell style={styles.tableHeader}>
+                                                DESCRIPTION
+                                            </TableCell>
+                                            <TableCell style={styles.tableHeader}>
+                                                UNIT PRICE
+                                            </TableCell>
+                                            <TableCell style={styles.tableHeader}>
+                                                AMOUNT
+                                            </TableCell>
+                                        </TableHeader>
+                                        <TableBody>
+                                            <DataTableCell getContent={(r) => 1} style={styles.tableRow}/>
+                                            <DataTableCell getContent={(r) => r.taskName} style={styles.tableRow}/>
+                                            <DataTableCell getContent={(r) => r.price} style={styles.tableRow}/>
+                                            <DataTableCell getContent={(r) => r.price} style={styles.tableRow}/>
+                                        </TableBody>
+                                    </Table>
+                                    <Table
+                                        data={[{}]}
+                                    >
+                                        <TableBody>
+                                            <DataTableCell getContent={()=>{}} style={styles.tableTotalRow}/>
+                                            <DataTableCell getContent={()=>{}} style={styles.tableRow}/>
+                                            <DataTableCell getContent={() => 'Total'} style={styles.tableRow}/>
+                                            <DataTableCell getContent={() => invoicedetails.total} style={styles.tableRow}/>
+                                        </TableBody>
+                                    </Table>
+                                    <Table
+                                        data={[{}]}
+                                    >
+                                        <TableBody>
+                                            <DataTableCell getContent={()=>{}} style={styles.tableTotalRow}/>
+                                            <DataTableCell getContent={()=>{}} style={styles.tableRow}/>
+                                            <DataTableCell getContent={() => 'Remaining'} style={styles.tableRow}/>
+                                            <DataTableCell getContent={() => invoicedetails.remaining} style={styles.tableRow}/>
+                                        </TableBody>
+                                    </Table>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.billToText}>Chief Executive Officer of Law Firm</Text>
+                                        <Text>{props.location.state.ceodetails.fullName}</Text>
+                                    </View>
+                                </Page>
+                            </Document>
+                        </PDFViewer> 
                     </div>
                 </div>
                 </div>
