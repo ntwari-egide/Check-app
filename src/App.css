@@ -55,9 +55,15 @@ body{
 }
 
 .pef-viewer{
-  
+  width: 80vw;
+  margin: auto;
+  height: 77vh;
 }
 
+.pef-viewer iframe{
+  width: 95%;
+  height: 94vh;
+}
 .dashboard .main-content input{
   border: none;
   padding: 10px 0;

@@ -69,26 +69,32 @@ const LogoutComponent = () => {
                 <div>
                     <div class="form-container">
                     <div class="h-screen bg-gray-300">
-                        <h1 class="m-auto pt-14 text-center">Logged out, Go <Link to={"/signin"} class="border">Login</Link> </h1>  
-                        <h1 className="mt-8 text-lg text-center">Print Receipt</h1> 
+                        <h1 class="m-auto pt-14 text-center">Logged out, Go <Link to={"/login"} class="border">Login</Link> </h1>  
+                        <h1 className="mt-8 text-lg text-center mb-4">Print Receipt</h1> 
 
-                        <PDFViewer className="pef-viewer">
+                        <PDFViewer className="pef-viewer mt-4">
                             <Document title={`atm receipt`} author="Check app ltd">
                                 <Page   style={styles.page} className="page" size={[580, 1350]} >
                                     <View>
                                         <Text  style={styles.textHeader}></Text>
                                     </View>
                     
-                                    <View style={styles.leftAlignment}>
+                                    <View className="flex">
+                                        <Text style={{
+                                            fontSize: '23px',color: '#0b3ed9'
+                                        }}>Check.</Text>
+                                        <Text style={{
+                                            fontSize: '23px',color: 'black'
+                                        }}>Receipt</Text>
+                                    </View>
+                                    <View style={{
+                                        marginTop: '20px',
+                                        textAlign: 'right'
+                                    }}>
                                         <Text style={styles.billToText}>Reciept Issued at:  
                                         {todayDate}</Text>
                                     </View>
-                                    <View>
-                                        <Text style={{
-                                            fontSize: '23px'
-                                        }}>Check.</Text>
-                                    </View>
-                                    <View style={{position: 'relative',top: '-90px'}}>
+                                    <View style={{position: 'relative',marginTop: '20px'}}>
                                     <Table
                                         data={JSON.parse(localStorage.getItem('receipt'))}
                                     >
@@ -97,26 +103,26 @@ const LogoutComponent = () => {
                                                 TIME
                                             </TableCell>
                                             <TableCell style={styles.tableHeader}>
-                                                AcTION
+                                                ACTION
                                             </TableCell>
                                         </TableHeader>
                                         <TableBody>
-                                            <DataTableCell getContent={(r) => 1} style={styles.tableRow}/>
-                                            <DataTableCell getContent={(r) => r.date} style={styles.action}/>                                            
+                                            <DataTableCell getContent={(r) => r.date} style={styles.tableRow}/>
+                                            <DataTableCell getContent={(r) => r.action} style={styles.tableRow}/>                                            
                                         </TableBody>
                                     </Table>
                                     <Table
                                         data={[{}]}
                                     >
                                         <TableBody>
-                                            <DataTableCell getContent={()=>{}} style={styles.tableTotalRow}/>
-                                            <DataTableCell getContent={()=>{}} style={styles.tableRow}/>
                                             <DataTableCell getContent={() => 'Total Number Of Tasks'} style={styles.tableRow}/>
                                             <DataTableCell getContent={() => JSON.parse(localStorage.getItem('receipt')).length} style={styles.tableRow}/>
                                         </TableBody>
                                     </Table>                                    
                                     </View>
-                                    <View>
+                                    <View style={{
+                                        marginTop: '30px'
+                                    }}>
                                         <Text style={styles.billToText}>Chief Executive Officer of Check.</Text>
                                         <Text>Egide Ntwari</Text>
                                     </View>
